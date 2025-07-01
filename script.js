@@ -117,20 +117,27 @@ const getTrueIndexes = (arr)=> {
 }
 
 const nextLevel = () => {
+  
+  removeSquare ()
+  
   currentLevel ++
   sequerNumber += currentLevel
   dimension ++
 
-   removeSquare ()
+  initializeLevel()
+  
   
 
 }
 
 const removeSquare = ( ) =>  {
 
-   for (let i = 0; i < ( dimension * dimension ); i++) {
+
+  for (let i = 0; i < ( dimension * dimension ); i++) {
     let element = document.getElementById(i)
     element.remove() }
+
+  
 
    
 
@@ -144,9 +151,11 @@ const removeSquare = ( ) =>  {
 
 
 initializeLevel()
-// nextLevel()
-removeSquare()
-initializeLevel()
+nextLevel()
+nextLevel()
+
+// removeSquare ()
+// initializeLevel()
 
   //  let element = document.getElementById(5)
   //   element.remove() 
@@ -155,3 +164,13 @@ initializeLevel()
   //   element.remove() 
 
 
+
+    // let newDiv = document.createElement('div')
+    // newDiv.addEventListener('click',clickHandler)
+    // newDiv.classList.add('Box')
+    // newDiv.id = 20
+
+    // ContainerLocation.appendChild(newDiv)
+
+    // initializeLevel()
+  
