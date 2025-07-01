@@ -6,6 +6,9 @@ let falseGuess = []
 
 let dimension = 3
 let sequerNumber = 3
+let currentLevel = 1
+
+let attempt = 3
 
 const ContainerLocation = document.getElementById('container')
 
@@ -69,7 +72,7 @@ const randomEffectedBoard = ()=> {
 
 
 const showEffectedBoard = ()=> {
-  console.log('5555')
+ 
 
   let tureIndex = getTrueIndexes(effectedBoard)
   console.log('tureIndex')
@@ -85,6 +88,7 @@ const showEffectedBoard = ()=> {
 
 
 const compare = (sequerId)=>  {
+
   allGuess = trueGuess.concat(falseGuess) // i seacrch how i can merge two array
   if (
     allGuess.some((guess) => {
@@ -112,6 +116,20 @@ const getTrueIndexes = (arr)=> {
   return newArray
 }
 
+const nextLevel = () => {
+  currentLevel ++
+  sequerNumber += currentLevel
+  dimension ++
+
+  
+
+}
 
 
+
+
+
+nextLevel()
 initializeLevel()
+
+
