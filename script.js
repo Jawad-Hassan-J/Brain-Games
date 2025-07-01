@@ -103,3 +103,13 @@ const compare = (sequerId)=>  {
   } else console.log(sequerId + 'false')
   falseGuess.push(sequerId)
 }
+
+const getTrueIndexes= (arr)=> {
+  let newArray = []
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === true) newArray.push(i)
+  }
+
+  return newArray
+}
