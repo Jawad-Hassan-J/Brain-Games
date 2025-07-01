@@ -121,7 +121,21 @@ const nextLevel = () => {
   sequerNumber += currentLevel
   dimension ++
 
+   removeSquare ()
   
+
+}
+
+const removeSquare = ( ) =>  {
+
+   for (let i = 0; i < ( dimension * dimension ); i++) {
+    let element = document.getElementById(i)
+    element.remove() }
+
+   
+
+  
+
 
 }
 
@@ -129,7 +143,15 @@ const nextLevel = () => {
 
 
 
-nextLevel()
 initializeLevel()
+// nextLevel()
+removeSquare()
+initializeLevel()
+
+  //  let element = document.getElementById(5)
+  //   element.remove() 
+
+  //   element=document.getElementById(2)
+  //   element.remove() 
 
 
