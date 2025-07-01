@@ -39,3 +39,10 @@ const createSquares= ()=> {
     ContainerLocation.appendChild(newDiv)
   }
 }
+
+
+const gridLayout = ()=> {
+
+  ContainerLocation.style.display = `grid`
+  ContainerLocation.style.gridTemplateColumns = `repeat(${dimension}, auto)`
+}
