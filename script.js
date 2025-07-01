@@ -3,6 +3,7 @@ let effectedBoard = []
 
 let trueGuess = []
 let falseGuess = []
+let tureIndex = []
 
 let dimension = 3
 let sequerNumber = 3
@@ -112,13 +113,13 @@ const getTrueIndexes = (arr)=> {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === true) newArray.push(i)
   }
-
+   tureIndex = newArray
   return newArray
 }
 
 const nextLevel = () => {
   
-  removeSquare ()
+  removeSquare () 
   
   currentLevel ++
   sequerNumber += currentLevel
@@ -146,31 +147,52 @@ const removeSquare = ( ) =>  {
 
 }
 
+const compareArr = (arr1,arr2) => {
+
+  
+
+  for (let i=0;i<arr1.length;i++) {
+
+      let is_Equal = false
+
+    for(let j=0; j< arr2.length ;j++) {
+
+
+    
+      if(arr1[i] === arr2[j]) {
+        is_Equal = true
+        break }
+}
+      
+
+     if (!is_Equal) {
+        return false
+     }
+
+        
+
+     
+      
+        }
+    
+        
+    return true
+
+
+  
+
+  
+
+}
+
+
+
+
+
 
 
 
 
 initializeLevel()
 nextLevel()
-nextLevel()
-
-// removeSquare ()
-// initializeLevel()
-
-  //  let element = document.getElementById(5)
-  //   element.remove() 
-
-  //   element=document.getElementById(2)
-  //   element.remove() 
-
-
-
-    // let newDiv = document.createElement('div')
-    // newDiv.addEventListener('click',clickHandler)
-    // newDiv.classList.add('Box')
-    // newDiv.id = 20
-
-    // ContainerLocation.appendChild(newDiv)
-
-    // initializeLevel()
-  
+console.log(tureIndex)
