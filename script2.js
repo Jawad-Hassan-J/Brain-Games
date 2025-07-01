@@ -36,5 +36,9 @@ const compareArr = (arr1,arr2) => {
 
 }
 
+let arr1 = ['1','2','4','3']
 
+let arr2 = ['1','2','3','4']
+
+console.log(compareArr(arr1,arr2))
 

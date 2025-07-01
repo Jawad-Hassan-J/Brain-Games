@@ -13,10 +13,20 @@ let attempt = 3
 
 const ContainerLocation = document.getElementById('container')
 
-const clickHandler = (event) => {
-  const sequerId = event.target.id
+function clickHandler() {
+  const sequerId = this.id
   console.log(`index ${sequerId} is clicked`)
   compare(sequerId)
+
+// if(compareArr(tureIndex,trueGuess))
+  console.log(tureIndex)
+console.log(trueGuess)
+if(compareArr(tureIndex,trueGuess)){
+  nextLevel()
+}
+  
+
+  
 }
 
 const initializeLevel = () => {
@@ -111,7 +121,7 @@ const getTrueIndexes = (arr)=> {
   let newArray = []
 
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === true) newArray.push(i)
+    if (arr[i] === true) newArray.push(`${i}`)
   }
    tureIndex = newArray
   return newArray
@@ -194,5 +204,4 @@ const compareArr = (arr1,arr2) => {
 
 
 initializeLevel()
-nextLevel()
 console.log(tureIndex)
