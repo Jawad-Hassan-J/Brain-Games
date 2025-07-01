@@ -58,3 +58,48 @@ const randomEffectedBoard = ()=> {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const compare = (sequerId)=>  {
+  allGuess = trueGuess.concat(falseGuess) // i seacrch how i can merge two array
+  if (
+    allGuess.some((guess) => {
+      return guess === sequerId
+    })
+  )
+    return
+
+  //  if (trueGuess.someeffectedBorad[sequerId])  // condistion check it is ture or false guess
+
+  if (effectedBoard[sequerId] === true) {
+    console.log(sequerId + 'ture')
+    trueGuess.push(sequerId)
+  } else console.log(sequerId + 'false')
+  falseGuess.push(sequerId)
+}
