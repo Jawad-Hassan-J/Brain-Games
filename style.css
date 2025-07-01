@@ -1,18 +1,18 @@
-.Contanier {
+.container {
   border: 10px solid blue;
   width: 1200px;
   height: 1200px;
   margin: auto;
 
-  display: grid;
-
+  
   justify-content: center;
   align-content: center;
-
+  
   justify-items: center;
   align-items: center;
   
-
+  
+  display: grid;
   grid-template-columns: repeat(4,auto);
 
 

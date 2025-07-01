@@ -1,11 +1,10 @@
-function initializeLevel() {
+let board = []
+let effectedBoard = []
 
-    let gridTemplateLocation = document.querySelector('.Contanier')
-    gridTemplateLocation.style.gridTemplateColumns = "repeat(4, auto)";
+let trueGuess = []
+let falseGuess = []
 
+let dimension = 3
+let sequerNumber = 3
 
-}
-
-let myArray = []
-myArray[4] = " d"
-console.log(myArray[4])
+const ContainerLocation = document.getElementById('container')
