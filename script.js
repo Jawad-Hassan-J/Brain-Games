@@ -60,6 +60,21 @@ const randomEffectedBoard = ()=> {
 }
 
 
+const showEffectedBoard = ()=> {
+  console.log('5555')
+
+  let tureIndex = getTrueIndexes(effectedBoard)
+  console.log('tureIndex')
+
+  for (let i = 0; i < tureIndex.length; i++) {
+    let sequerLocation = document.getElementById(tureIndex[i])
+    sequerLocation.style.backgroundColor = 'blue'
+
+    // document.getElementById(0).style.backgroundColor = "blue"
+  }
+}
+
+
 
 
 
