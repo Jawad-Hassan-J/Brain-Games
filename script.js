@@ -46,3 +46,15 @@ const gridLayout = ()=> {
   ContainerLocation.style.display = `grid`
   ContainerLocation.style.gridTemplateColumns = `repeat(${dimension}, auto)`
 }
+
+
+const randomEffectedBoard = ()=> {
+  for (let i = 0, j = 0; i < sequerNumber; j++) {
+    const randomInt = Math.floor(Math.random() * 11)
+
+    if (effectedBoard[randomInt] === '') {
+      effectedBoard[randomInt] = true
+      i++
+    }
+  }
+}
