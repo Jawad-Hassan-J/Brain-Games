@@ -9,10 +9,19 @@ let sequerNumber = 3
 
 const ContainerLocation = document.getElementById('container')
 
-function initializeLevel() {
+const initializeLevel = () => {
   initializeBorads()
   createSquares()
   gridLayout()
   randomEffectedBoard()
   showEffectedBoard()
+}
+
+
+const initializeBorads = ()=> {
+  
+  for (let i = 0; i < dimension * dimension; i++) {
+    board[i] = ''
+    effectedBoard[i] = ''
+  }
 }
