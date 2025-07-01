@@ -9,7 +9,14 @@ let sequerNumber = 3
 
 const ContainerLocation = document.getElementById('container')
 
+const clickHandler = (event) => {
+  const sequerId = event.target.id
+  console.log(`index ${sequerId} is clicked`)
+  compare(sequerId)
+}
+
 const initializeLevel = () => {
+
   initializeBorads()
   createSquares()
   gridLayout()
@@ -19,7 +26,7 @@ const initializeLevel = () => {
 
 
 const initializeBorads = ()=> {
-  
+
   for (let i = 0; i < dimension * dimension; i++) {
     board[i] = ''
     effectedBoard[i] = ''
@@ -32,7 +39,7 @@ const createSquares= ()=> {
 
   for (let i = 0; i < dimension * dimension; i++) {
     let newDiv = document.createElement('div')
-    newDiv.addEventListener('click', clickHandler)
+    newDiv.addEventListener('click',clickHandler)
     newDiv.classList.add('Box')
     newDiv.id = i
 
@@ -43,6 +50,7 @@ const createSquares= ()=> {
 
 const gridLayout = ()=> {
 
+   
   ContainerLocation.style.display = `grid`
   ContainerLocation.style.gridTemplateColumns = `repeat(${dimension}, auto)`
 }
@@ -50,7 +58,7 @@ const gridLayout = ()=> {
 
 const randomEffectedBoard = ()=> {
   for (let i = 0, j = 0; i < sequerNumber; j++) {
-    const randomInt = Math.floor(Math.random() * 11)
+    const randomInt = Math.floor(Math.random() * (dimension * dimension))
 
     if (effectedBoard[randomInt] === '') {
       effectedBoard[randomInt] = true
@@ -76,31 +84,6 @@ const showEffectedBoard = ()=> {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const compare = (sequerId)=>  {
   allGuess = trueGuess.concat(falseGuess) // i seacrch how i can merge two array
   if (
@@ -119,7 +102,7 @@ const compare = (sequerId)=>  {
   falseGuess.push(sequerId)
 }
 
-const getTrueIndexes= (arr)=> {
+const getTrueIndexes = (arr)=> {
   let newArray = []
 
   for (let i = 0; i < arr.length; i++) {
@@ -128,3 +111,7 @@ const getTrueIndexes= (arr)=> {
 
   return newArray
 }
+
+
+
+initializeLevel()
