@@ -25,3 +25,17 @@ const initializeBorads = ()=> {
     effectedBoard[i] = ''
   }
 }
+
+
+const createSquares= ()=> {
+
+
+  for (let i = 0; i < dimension * dimension; i++) {
+    let newDiv = document.createElement('div')
+    newDiv.addEventListener('click', clickHandler)
+    newDiv.classList.add('Box')
+    newDiv.id = i
+
+    ContainerLocation.appendChild(newDiv)
+  }
+}
