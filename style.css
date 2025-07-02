@@ -23,8 +23,8 @@
   width: 150px;
   height: 150px;
   margin: 20px;
-  background-color: red;
-
+  /* background-color: gray; */
+  background-color: lightskyblue;
   font-size: 4em;
   text-align: center;
   
@@ -39,5 +39,6 @@
 #Generate{
   width: 150px;
   height: 150px;
+
 
 }

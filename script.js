@@ -1,4 +1,5 @@
 let board = []
+let boardsLocatoin
 let effectedBoard = []
 
 let trueGuess = []
@@ -6,10 +7,21 @@ let falseGuess = []
 let tureIndex = []
 
 let dimension = 3
-let sequerNumber = 3
+let sequerNumber = 6
 let currentLevel = 1
 
 let attempt = 3
+let showTime =250
+
+let boardColor = "red"
+let effectedColor= "gray"
+
+let tureColor = effectedColor
+let falseColor="black"
+
+
+
+
 
 const ContainerLocation = document.getElementById('container')
 
@@ -19,11 +31,9 @@ function clickHandler() {
   compare(sequerId)
 
 // if(compareArr(tureIndex,trueGuess))
-  console.log(tureIndex)
+console.log(tureIndex)
 console.log(trueGuess)
-if(compareArr(tureIndex,trueGuess)){
-  nextLevel()
-}
+if(compareArr(tureIndex,trueGuess)) {nextLevel()}
   
 
   
@@ -31,16 +41,26 @@ if(compareArr(tureIndex,trueGuess)){
 
 const initializeLevel = () => {
 
+  resetState()
   initializeBorads()
   createSquares()
+  editBoardColor(boardColor)
   gridLayout()
   randomEffectedBoard()
   showEffectedBoard()
 }
 
+const resetState = ()=>{
+  trueGuess = []
+  falseGuess = []
+  tureIndex = []
+  falseGuess = []
+  board = []
+  effectedBoard = []
+}
+
 
 const initializeBorads = ()=> {
-
   for (let i = 0; i < dimension * dimension; i++) {
     board[i] = ''
     effectedBoard[i] = ''
@@ -90,32 +110,50 @@ const showEffectedBoard = ()=> {
 
   for (let i = 0; i < tureIndex.length; i++) {
     let sequerLocation = document.getElementById(tureIndex[i])
-    sequerLocation.style.backgroundColor = 'blue'
+    sequerLocation.style.backgroundColor = effectedColor // ture color
 
     // document.getElementById(0).style.backgroundColor = "blue"
   }
+  
+  setTimeout(hideSequer,showTime)
 }
 
 
 
 const compare = (sequerId)=>  {
 
-  allGuess = trueGuess.concat(falseGuess) // i seacrch how i can merge two array
-  if (
-    allGuess.some((guess) => {
-      return guess === sequerId
-    })
-  )
-    return
+allGuess = trueGuess.concat(falseGuess) // i seacrch how i can merge two array
 
-  //  if (trueGuess.someeffectedBorad[sequerId])  // condistion check it is ture or false guess
+if ( allGuess.some((guess) => {
+  return guess === sequerId})){
 
-  if (effectedBoard[sequerId] === true) {
-    console.log(sequerId + 'ture')
+  return
+
+  }
+
+
+//  if (trueGuess.someeffectedBorad[sequerId])  // condistion check it is ture or false guess
+
+if (effectedBoard[sequerId] === true)
+
+    {
     trueGuess.push(sequerId)
-  } else console.log(sequerId + 'false')
-  falseGuess.push(sequerId)
-}
+    document.getElementById(`${sequerId}`).style.backgroundColor = tureColor
+
+    console.log(`index ${sequerId} is ture`)
+
+    } 
+
+else 
+  {
+    
+    falseGuess.push(sequerId)
+    document.getElementById(`${sequerId}`).style.backgroundColor = falseColor
+
+    console.log(`index ${sequerId} is false`)
+}}
+
+
 
 const getTrueIndexes = (arr)=> {
   let newArray = []
@@ -195,13 +233,42 @@ const compareArr = (arr1,arr2) => {
 
 }
 
+const hideSequer = () => {
+
+  
+  let tureIndex = getTrueIndexes(effectedBoard)
+  console.log('tureIndex')
+
+  for (let i = 0; i < tureIndex.length; i++) {
+    let sequerLocation = document.getElementById(tureIndex[i])
+    sequerLocation.style.backgroundColor = boardColor // same to the backround
+  }
 
 
 
+
+}
+
+
+const editBoardColor = (color) => {
+
+   boardsLocatoin= document.querySelectorAll('.Box')
+  
+  for (let i=0;i<boardsLocatoin.length;i++){
+  boardsLocatoin[i].style.backgroundColor=color
+
+}
+
+
+
+
+}
 
 
 
 
 
 initializeLevel()
-console.log(tureIndex)
+
+
+
